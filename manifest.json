@@ -1,0 +1,9 @@
+{
+  "domain": "actual_budget_sensor",
+  "name": "Actual Budget Sensor",
+  "version": "1.0.0",
+  "documentation": "https://github.com/daviswieck/actual_budget_sensor",
+  "requirements": ["actual-api==0.0.1"],
+  "dependencies": [],
+  "codeowners": ["@daviswieck"]
+}
