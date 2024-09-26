@@ -1,0 +1,9 @@
+{
+  "name": "actual-budget-sensor",
+  "render_readme": true,
+  "domain": "actual_budget_sensor",
+  "version": "1.0.0",
+  "description": "Integration for Actual Budget",
+  "documentation": "https://www.actualbudget.com/",
+  "requirements": []
+}
