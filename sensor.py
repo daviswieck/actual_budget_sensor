@@ -1,5 +1,5 @@
 import logging
-import asyncio
+import actual
 from homeassistant.helpers.entity import Entity
 
 _LOGGER = logging.getLogger(__name__)
@@ -30,12 +30,21 @@ class ActualBudgetSensor(Entity):
     async def async_update(self):
         """Fetch new state data for the sensor."""
         try:
-            # Placeholder for API call to Actual Budget
             self._state = await self.get_budget_balance()
         except Exception as e:
             _LOGGER.error(f"Error fetching data: {e}")
 
     async def get_budget_balance(self):
-        """Mock method to fetch budget balance (replace with actual API call)."""
-        # TODO: Replace with actual call to the Actual Budget API
-        return 1000.00
+        """Fetch budget balance from Actual Budget API."""
+        try:
+            # Connect to your Actual server
+            client = actual.connect("http://localhost:5006", password="your-password")
+
+            # Fetch budget data
+            budget_data = await client.budget.budget()
+            balance = budget_data["balance"]  # Adjust based on the API structure
+
+            return balance
+        except Exception as e:
+            _LOGGER.error(f"Failed to fetch Actual Budget data: {e}")
+            return None
